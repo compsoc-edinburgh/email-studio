@@ -1,0 +1,30 @@
+{
+  "name": "compsoc-sso-template",
+  "version": "1.0.0",
+  "description": "compsoc committee sso template (js)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/compsoc-edinburgh/compsoc-sso-template-js.git"
+  },
+  "author": "Patrick Kage (patrick@comp-soc.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/compsoc-edinburgh/compsoc-sso-template-js/issues"
+  },
+  "homepage": "https://github.com/compsoc-edinburgh/compsoc-sso-template-js#readme",
+  "dependencies": {
+    "debug": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "sqlite": "^4.0.15",
+    "sqlite3": "^5.0.0"
+  }
+}
