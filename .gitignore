@@ -1,5 +1,7 @@
 # ignore staging
 staging/
+**/*.db
+
 # Logs
 logs
 *.log
