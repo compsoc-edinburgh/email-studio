@@ -1,10 +1,10 @@
 version: '3'
 services:
-    compsoc-sso-demo-js:
-        image: compsoc-sso-demo-js
+    compsoc-email-studio:
+        image: compsoc-email-studio
         env_file:
             - ".env"
         ports:
-            - "3000:3000"
+            - "3030:3030"
         volumes:
             - "./instance/:/app/instance/"
