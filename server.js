@@ -74,14 +74,15 @@ app.get('/auth/logout', (req, res) => {
 
 const login_guard = (req, res, next) => {
     // short circuit
-    if (!req.user && false) {
+    if (!req.user) {
         res.redirect('/')
     } else {
+        /*
         req.user = {
             name: 'Patrick Kage',
             email: 'patrick@comp-soc.com',
             photo: 'https://placekitten.com/256/256'
-        }
+        }*/
         next()
     }
 }

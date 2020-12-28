@@ -1,18 +1,36 @@
 <!DOCTYPE html>
-
 <html>
-    <head>
-        <title>SSO demo</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link href="/static/index.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.css" rel="stylesheet">
-        <link href="/static/compsoc-icon.png" rel="icon">
-    </head>
+    <%- include('_head', {title: undefined}) %>
     <body>
-        <main>
-            <h1>sso demo (js)</h1>
-            <a href="/auth/google">click to login &rarr;</a>
-        </main>
+        <div class="fullpage">
+            <div class="fullpage__centered">
+                <article>
+                    <div class="image is-64x64">
+                        <img src="/static/compsoc-icon.png" alt="compsoc logo">
+                    </div>
+                    <h1 class="title">CompSoc Email Studio</h1>
+                    <h2 class="subtitle">An internal CompSoc service.</h2>
+                    <p class="block">
+                        This service bridges our Sendy instance with an
+                        MJML-powered designer, and allows for creation of
+                        S3-backed image files with simple asset management.
+                    </p>
+                    <p class="block">
+                        <div class="level">
+                            <div class="level-left"></div>
+                            <div class="level-right">
+                                <a href="/auth/google">
+                                    <span>Log in</span>
+                                    <span class="icon">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </p>
+                </article>
+            </div>
+        </div>
     </body>
 </html>
+
