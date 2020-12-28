@@ -1,0 +1,42 @@
+<form action="/assets/upload" method="post" id="asset_upload" enctype="multipart/form-data">
+    <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+            <input class="input" name="assetname" type="text" placeholder="Asset Name">
+        </div>
+    </div>
+
+
+
+    <div class="file">
+        <label class="file-label">
+            <input class="file-input" type="file" name="assetfile" accept="image/png,image/gif,image/jpeg">
+            <span class="file-cta">
+                <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label file-name">
+                    Choose a file…
+                </span>
+            </span>
+        </label>
+    </div>
+
+    <br/>
+    
+    <div class="field">
+        <div class="control">
+            <button class="button is-link">Submit</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    const fileInput = document.querySelector('#asset_upload input[type=file]');
+    fileInput.onchange = () => {
+        if (fileInput.files.length > 0) {
+            const fileName = document.querySelector('#asset_upload .file-name');
+            fileName.textContent = fileInput.files[0].name;
+        }
+    }
+</script>

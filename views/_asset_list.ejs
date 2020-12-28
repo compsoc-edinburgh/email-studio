@@ -1,0 +1,8 @@
+<% assets.forEach(asset => { %>
+<div class="asset">
+    <div class="asset__image" style="background-image: url(<%= asset.url %>);"></div>
+    <p>
+        <a href="/assets/object/<%= asset.name %>" target="_blank"><%= asset.name %></a> <code>@asset:<%= asset.name %></code>
+    </p>
+</div>
+<% }) %>

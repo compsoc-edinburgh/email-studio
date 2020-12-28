@@ -1,33 +1,112 @@
-:root {
-    --link: #d63031;
-    --link--active: #ff7675;
-}
+main.editorpage {
+    display: grid;
 
-body {
-    margin: 0;
+    grid-template-rows: 52px auto 52px;
 
-    color: #444;
-    background-color: #fffffd;
+    grid-template-columns: 1fr 1fr;
     
-    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+    min-height: 100vh;
 }
 
-a {
-    text-decoration: none;
-    color: var(--link);
+main.editorpage > nav, main.exportpage > nav {
+    grid-column: 1 / span 2;
 }
 
-a:hover {
-    color: var(--link--active);
+main.exportpage {
+    display: grid;
+
+    grid-template-rows: 52px auto;
+    grid-template-columns: 1fr 1fr;
+    
+    min-height: 100vh;
 }
 
-@media (min-width: calc(80ch + 2rem)) {
-    main {
-        width: 80ch;
-        padding-left: calc(50vw - 40ch - 1rem);
-    }
+
+.editorpage__editor, .editorpage__render {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
 }
 
-main {
-    margin: 1rem;
+.editorpage__toolstrip {
+    grid-column: 1 / span 2;
+
+    margin: 0 1em;
+}
+
+#editor {
+    flex-grow: 1;
+}
+
+#renderer {
+    flex-grow: 1;
+}
+
+
+.editorpage__title {
+    margin-left: 1em;
+    font-weight: bold;
+}
+
+.buttons__nobottom {
+    margin-bottom: 0 !important;
+}
+.buttons__nobottom > .button {
+    margin-bottom: 0 !important;
+}
+
+.asset-view {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    height: 100%;
+    padding: 20px;
+
+}
+
+
+.asset {
+    display:  flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.asset__image {
+    width: 64px;
+    height: 64px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-right: 1em;
+}
+
+.fullpage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.fullpage > .columns, .fullpage__centered {
+    flex-grow: 1;
+}
+
+.fullpage__centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fullpage__centered > article {
+    max-width: 50ch;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0 !important;
 }

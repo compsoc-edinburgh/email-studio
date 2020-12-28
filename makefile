@@ -3,9 +3,9 @@
 include .env
 export
 
-DOCKER_TAG_NAME = compsoc-sso-demo-js
+DOCKER_TAG_NAME = compsoc-email-studio
 REMOTE = compsoc-admin@bucket.comp-soc.com
-REMOTE_DESTINATION = sso-js
+REMOTE_DESTINATION = email-studio
 STAGING = staging
 
 

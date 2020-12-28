@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <%- include('_head', {title: 'Delete'}) %>
+    <body>
+        <div class="fullpage">
+            <%- include('_navbar') %>
+            <div class="fullpage__centered">
+                <article class="message is-danger">
+                    <div class="message-header">
+                        <p>Are you sure?</p>
+                        <a href="/edit/<%= email.uuid %>" class="delete" aria-label="delete"></a>
+                    </div>
+                    <div class="message-body">
+                        <p>
+                            Are you sure you want to delete email <strong><%= email.subject %></strong>?
+                            This action is irreversible! No amount of pestering
+                            me is going to bring your email back, so only delete
+                            it if you're sure you know what you're doing!
+                        </p>
+                        <div class="level mt-5">
+                            <div class="level-left"></div>
+                            <div class="level-right">
+                                <a href="/edit/<%= email.uuid %>/delete/confirm" class="button is-danger">I'm sure.</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </body>
+</html>
+

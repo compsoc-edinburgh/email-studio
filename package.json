@@ -17,14 +17,22 @@
   },
   "homepage": "https://github.com/compsoc-edinburgh/compsoc-sso-template-js#readme",
   "dependencies": {
+    "aws-sdk": "^2.813.0",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
     "debug": "^4.2.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "form-data": "^3.0.0",
+    "mjml": "^4.7.1",
+    "multer": "^1.4.2",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
+    "qs": "^6.9.4",
     "sqlite": "^4.0.15",
-    "sqlite3": "^5.0.0"
+    "sqlite3": "^5.0.0",
+    "uuid": "^8.3.2"
   }
 }

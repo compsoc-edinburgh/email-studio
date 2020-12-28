@@ -1,6 +1,8 @@
 # ignore staging
 staging/
 **/*.db
+*.env
+.env
 
 # Logs
 logs

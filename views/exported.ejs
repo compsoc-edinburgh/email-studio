@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <%- include('_head', {title: 'Export Complete'}) %>
+    <body>
+        <div class="fullpage">
+            <%- include('_navbar') %>
+            <div class="fullpage__centered">
+                <article class="message is-success">
+                    <div class="message-header">
+                        <p>Exported successfully!</p>
+                        <a href="/dashboard" class="delete" aria-label="delete"></a>
+                    </div>
+                    <div class="message-body">
+                        <p>
+                            Exported email <strong><%= email.subject %></strong>
+                            successfully. Continue editing the draft campaign on
+                            Sendy's platform, or leave it as a draft and write
+                            another email.
+                        </p>
+                        <p class="mt-5">
+                            Sendy response: <code><%= msg %></code>.
+                        </p>
+                        <div class="level mt-5">
+                            <div class="level-left">
+                                <a href="/edit/<%= email.uuid %>" class="button">
+                                    <span class="icon">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </span>
+                                    <span>Back to edit</span>
+                                </a>
+                            </div>
+                            <div class="level-right">
+                                <a href="<%= sendy_url %>" class="button is-success" target="_blank">
+                                    <span>Continue to Sendy</span>
+                                    <span class="icon">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </body>
+</html>
+

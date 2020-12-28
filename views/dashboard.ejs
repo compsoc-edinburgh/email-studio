@@ -1,21 +1,65 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>SSO demo - logged in</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link href="/static/index.css" rel="stylesheet">
-        <link href="/static/compsoc-icon.png" rel="icon">
-    </head>
+    <%- include('_head', {title: 'Dashboard'}) %>
     <body>
-        <main>
-            <h1>sso demo (js)</h1>
-            <p>
-                Logged in as <%= user.name %> <i>(<%= user.email %>)</i> <br/>
-                <a href="/auth/logout">Log out &rarr;</a>
-            </p>
-            <img src="<%= user.photo %>" alt="your profile pic"/>
+        <%- include('_navbar') %>
+
+        <main class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="block">
+                        <h1 class="title">Drafted Emails</h1>
+                        <h2 class="subtitle"><%= emails.length %> total &bull; <a href="/emails/new">New</a></h2>
+
+                        <% emails.forEach(email => { %>
+                            <div class="level">
+                                <div class="level-left">
+                                    <p>
+                                        <strong><%= email.subject %></strong><br/>
+                                        <%= email.lastused_str %> &bull; <%= email.body.length %> bytes
+                                    </p>
+                                </div>
+                                <a class="level-right" href="/edit/<%= email.uuid %>">
+                                    edit
+                                </a>
+                            </div>
+                        <% }) %>
+                        
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="block">
+                        <h1 class="title">Templates</h1>
+                        <h2 class="subtitle"><%= templates.length %> total</h2>
+
+                        <% templates.forEach(template => { %>
+                            <div class="level">
+                                <div class="level-left">
+                                    <p>
+                                        <strong><%= template.subject %></strong><br/>
+                                        <%= template.lastused_str %> &bull; <%= template.body.length %> bytes
+                                    </p>
+                                </div>
+                                <a class="level-right" href="/edit/<%= template.uuid %>/clone">
+                                    clone
+                                </a>
+                            </div>
+                        <% }) %>
+                    </div>
+
+
+                    <div class="block">
+                        <h1 class="title">Assets</h1>
+                        <h2 class="subtitle"><%= assets.length %> total &bull; <a href="/assets">View all</a></h2>
+
+                        <%- include('_asset_list') %>
+                    </div>
+
+
+                    
+                </div>
+            </div>
         </main>
     </body>
 </html>

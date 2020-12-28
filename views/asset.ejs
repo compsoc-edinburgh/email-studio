@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <%- include('_head', {title: 'Asset ' + asset.name}) %>
+    <body>
+        <div class="fullpage">
+            <%- include('_navbar') %>
+            <div class="columns mx-3 no-bottom-margin">
+                <div class="column">
+                    <nav class="breadcrumb" aria-label="breadcrumbs">
+                        <ul>
+                            <li><a href="/assets">Assets</a></li>
+                            <li class="is-active"><a href="#" aria-current="page"><%= asset.name %></a></li>
+                        </ul>
+                    </nav>
+                    <h1 class="title">Asset</h1>
+                    <h2 class="subtitle"><%= asset.name %></h2>
+                    <p class="block">
+                    To use in your email, type in <code>@asset:<%= asset.name %></code>
+                    </p>
+
+                    <div class="block">
+                        <a href="/assets/object/<%= asset.name %>/delete" class="button is-danger">Delete</a>
+                    </div>
+                </div>
+                <div class="column is-two-thirds">
+                    <div class="asset-view" style="background-image: url(<%= asset.url %>);">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

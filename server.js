@@ -2,15 +2,17 @@
 require('dotenv').config()
 
 // base
-const express = require('express')
-const debug   = require('debug')('app:*')
-const open_db = require('./db')
+const express    = require('express')
+const debug      = require('debug')('app:*')
+const open_db    = require('./db')
+
 
 
 // authentication
 const passport       = require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const session        = require('express-session')
+
 
 /* --- FRONTEND --- */
 
@@ -71,27 +73,78 @@ app.get('/auth/logout', (req, res) => {
 })
 
 const login_guard = (req, res, next) => {
-    if (!req.user) {
+    // short circuit
+    if (!req.user && false) {
         res.redirect('/')
     } else {
+        req.user = {
+            name: 'Patrick Kage',
+            email: 'patrick@comp-soc.com',
+            photo: 'https://placekitten.com/256/256'
+        }
         next()
     }
 }
+
 
 // homepage
 app.get('/', (req, res) => {
     res.render('index')
 })
 
+
+const {mail_app, MailDB} = require('./email')
+app.use(login_guard, mail_app)
+
+const {assets_app, AssetsDB} = require('./assets')
+app.use('/assets', login_guard, assets_app)
+
 // dashboard
 app.get('/dashboard',
     login_guard,
     async (req, res) => {
+        const db = await open_db()
+        const mail = new MailDB(db)
+        const assets = new AssetsDB(db)
+
+        emails = await mail.getAllEmails()
+
         res.render('dashboard', {
+            user: req.user,
+            emails: emails,
+            templates: emails.filter(e => e.is_template),
+            assets: await assets.listAssets()
+        })
+    }
+)
+
+app.get('/docs',
+    login_guard,
+    async (req, res) => {
+        res.render('docs', {
+            user: req.user
+        })
+    }
+)
+app.get('/404',
+    login_guard,
+    async (req, res) => {
+        res.render('404', {
+            user: req.user
+        })
+    }
+)
+app.get('/*',
+    login_guard,
+    async (req, res) => {
+        res.render('404', {
             user: req.user
         })
     }
 )
 
+
+
 // launch the app!
 app.listen(process.env['APP_PORT'], () => debug(`committee sso template listening on port ${process.env['APP_PORT']}!`))
+

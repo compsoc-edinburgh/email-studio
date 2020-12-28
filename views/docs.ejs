@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <%- include('_head', {title: 'Docs'}) %>
+    <body>
+        <%- include('_navbar') %>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="block">
+                        <h1 class="title">About</h1>
+                        <h2 class="subtitle">About the service</h2>
+                    
+                        <p class="block">
+                            The CompSoc Email Studio allows for the easy creation
+                            of nicely formatted emails. It automatically strings
+                            together an MJML formatter with our email system, Sendy.
+                        </p>
+
+                        <p class="block">
+                            Please report any bugs <a href="https://github.com/compsoc-edinburgh/email-studio/issues/new">on Github</a>,
+                            or bother @kage on Discord.
+                        </p>
+
+                    </div>
+                    <div class="block">
+                        <h1 class="title">MJML</h1>
+                        <h2 class="subtitle">About MJML</h2>
+
+                        <p class="block">
+                            MJML is Mailjet's email templating engine. Writing
+                            email HTML by hand sucks, so MJML lets us write emails
+                            in an XML format which is then compiled to HTML
+                            compatible with most email clients. 
+                        </p>
+
+                        <p>
+                            <a href="//documentation.mjml.io" target="_blank">View the MJML documentation here.</a>
+                        </p>
+                    </div>
+                    <div class="block">
+                        <h1 class="title">Assets</h1>
+                        <h2 class="subtitle">About the Asset store</h2>
+
+                        <p class="block">
+                            Instead of attaching images to the email, we leverage
+                            our existing object storage infrastructure to serve
+                            static files. Use the Assets interface to upload images
+                            for inclusion in the emails. Assets can be linked into
+                            emails by referring to them with <code>@asset:asset_name</code>.
+                        </p>
+                    </div>
+                </div>
+                <div class="column is-two-thirds">
+                    <div class="block">
+                        <h1 class="title">Sendy</h1>
+                        <h2 class="subtitle">Sendy-specific shortcuts</h2>
+                    </div>
+                    <div class="block">
+                        <p>
+                            Sendy is our email engine. It handles the actual sending
+                            of the email, and performs the second step in the email
+                            templating. It supports more subscriber-based templating,
+                            and knows about the email list. Here are a list of
+                            supported templating instructions; note that these will
+                            not be interpolated in the MJML preview&mdash;but they will
+                            be in the Sendy output (you can verify this in the Sendy preview).
+                        </p>
+                    </div>
+
+                    <!--div class="block">
+                        <h3 class="is-size-5 has-text-weight-bold">HTML tags</h3>
+                        <dl>
+                            <dt class="has-text-weight-bold">Web version</dt>
+                            <dd>
+                                <code>
+                                    &lt;webversion&gt;View web version&lt;/webversion&gt;
+                                </code>
+                            </dd>
+
+                            <dt class="has-text-weight-bold">Unsubscribe link</dt>
+                            <dd>
+                                <code>
+                                    &lt;unsubscribe&gt;Unsubscribe here&lt;/unsubscribe&gt;
+                                </code>
+                            </dd>
+                        </dl>
+                    </div-->
+
+                    <div class="block">
+                        <h3 class="is-size-5 has-text-weight-bold">Plain text</h3>
+                        <div class="columns">
+                            <dl class="column">
+                                <dt class="has-text-weight-bold">Name</dt>
+                                <dd>
+                                    <code>[Name, fallback=]</code>
+                                </dd>
+
+                                <dt class="has-text-weight-bold">Email</dt>
+                                <dd>
+                                    <code>[Email]</code>
+                                </dd>
+
+                                <dt class="has-text-weight-bold">Numeric day (e.g. 01 to 31)</dt>
+                                <dd>
+                                    <code>[currentdaynumber]</code>
+                                </dd>
+
+                                <dt class="has-text-weight-bold">Full text day name</dt>
+                                <dd>
+                                    <code>[currentday]</code>
+                                </dd>
+
+                        
+                                <dt class="has-text-weight-bold">Numeric month</dt>
+                                <dd>
+                                    <code>[currentmonthnumber]</code>
+                                </dd>
+
+                                <dt class="has-text-weight-bold">Full text month name</dt>
+                                <dd>
+                                    <code>[currentday]</code>
+                                </dd>
+
+                                <dt class="has-text-weight-bold">Year</dt>
+                                <dd>
+                                    <code>[currentyear]</code>
+                                </dd>
+                            </dl>
+
+                            <dl class="column">
+                                <dt class="has-text-weight-bold">Web version link</dt>
+                                <dd>
+                                    <code>[webversion]</code>
+                                </dd>
+
+                                <dt class="has-text-weight-bold">Unsubscribe link</dt>
+                                <dd>
+                                    <code>[unsubscribe]</code>
+                                </dd>
+                                <dt class="has-text-weight-bold">GDPR reconsent link</dt>
+                                <dd>
+                                    <code>[reconsent]</code>
+                                </dd>
+                            </dl>
+
+                        </div>
+                    </div>
+
+                    <div class="block">
+                        <h1 class="title">Editor</h1>
+                        <h2 class="subtitle">Email editor shortcuts</h2>
+
+                        <p class="block">
+                            The email editor supports normal, Vim, and Emacs
+                            keybindings. This settings persists in the browser
+                            between sessions. Additionally, there are a few
+                            built-in key shortcuts; to save, use <code>Ctrl-S</code>
+                            /<code>Cmd-S</code>/<code>:w</code>, and to render,
+                            press <code>Shift-Enter</code>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

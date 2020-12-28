@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <%- include('_head', {title: 'Export'}) %>
+    <body>
+
+        <main class="exportpage">
+            <%- include('_navbar') %>
+            <div class="editorpage__render">
+                <iframe id="renderer" src="/edit/<%= email.uuid %>/render"></iframe>
+            </div>
+            <div class="pr-6">
+                <h1 class="title">Export Campaign</h1>
+                <h2 class="subtitle">Export email to Sendy</h2>
+                <p class="block">
+                    Export this email as a draft to Sendy via the API. You'll be
+                    able to select the applicable mailing lists and other options
+                    directly from Sendy. <strong>Note that this does not send the email!</strong>
+                </p>
+                <div class="block">
+                    <form action="/edit/<%= email.uuid %>/export" method="POST">
+                        <div class="field">
+                            <label class="label">Campaign Title</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" placeholder="CompSoc Does Email" name="title" required autocomplete="off">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-bookmark"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">From Name</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" placeholder="CompSoc Team" name="from_name" required autocomplete="off">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">From Email</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="email" placeholder="hello@comp-soc.com" name="from_email" required autocomplete="off">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Reply-To Email</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="email" placeholder="hello@comp-soc.com" name="reply_to" required autocomplete="off">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Brand</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select name="brand_id">
+                                        <% brands.forEach(brand => { %>
+                                        <option value="<%= brand.id %>"><%= brand.name %></option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <button type="submit" class="button is-primary">Export</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
+

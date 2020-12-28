@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+    <%- include('_head', {title: 'Editor'}) %>
+    <body>
+        <main class="editorpage">
+            <%- include('_navbar') %>
+            <div class="editorpage__editor">
+                <div id="editor"><%= email.body %></div>
+            </div>
+            <div class="editorpage__render">
+                <iframe id="renderer"></iframe>
+            </div>
+            <div class="editorpage__toolstrip level">
+                <div class="level-left">
+                    <div class="buttons buttons__nobottom">
+                        <button class="button is-small" id="save_btn">Save</button>
+                        <button class="button is-small" id="metadata_btn">Options</button>
+                        <button class="button is-small" id="assets_btn">Assets</button>
+                    </div>
+
+                    <div class="editorpage__title"><%= email.subject %></div>
+                </div>
+                <div class="level-right">
+                    <div class="buttons">
+                        <a href="/edit/<%= email.uuid %>/render" target="_blank" class="button is-small">Open in New Tab</a>
+                        <button class="button is-small" id="render_btn">Render</button>
+                        <a class="button is-small is-primary" href="/edit/<%= email.uuid %>/export">Export</a>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <div class="modal" id="assets_modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <%- include('_asset_list') %>
+                    <br/>
+                    <a href="/assets" target="_blank">Open asset page</a>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+        <div class="modal" id="metadata_modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <h1 class="title">Metadata</h1>
+                    <form id="metadata_form" method="post" action="/edit/<%= email.uuid %>/metadata">
+                        <div class="field">
+                            <label class="label">Subject</label>
+                            <div class="control">
+                                <input class="input" autocomplete="off" placeholder="Text input" name="subject" value="<%= email.subject %>">
+                            </div>
+                        </div>
+                        
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="is_template" <%- email.is_template ? 'checked' : '' %>>
+                                    This is a template
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <button id="metadata_form_submit" class="button is-link">Save</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+                <div class="box">
+                    <h1 class="title">Editor</h1>
+                    
+                    <div class="field">
+                        <label class="label">Keybinding</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="keybind_select">
+                                    <option value="normal">Normal</option>
+                                    <option value="vim">Vim</option>
+                                    <option value="emacs">Emacs</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <h1 class="title">Other</h1>
+
+                    <a href="/edit/<%= email.uuid %>/delete" class="button is-danger">Delete this email</a>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous"></script>
+        <script src="/static/editor.js"></script>
+    </body>
+
+
+</html>
