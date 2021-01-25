@@ -1,14 +1,13 @@
-# compsoc committee sso template (javascript)
-
+# compsoc email studio
 ## what?
 
-This is a template project to demonstrate allowing compsoc committee members to
-sign into internal applications, using our existing google admin platform. This
-project also ships with some sample code for easily building and deploying new
+This service bridges our Sendy instance with an MJML-powered designer, and allows for creation of S3-backed image files with simple asset management. 
+This project also ships with some code for easily building and deploying new
 CompSoc microservices, through some makefile abuse.
 
-This template ships with:
+This project is built on:
 
+ - [MJML](https://mjml.io)
  - [express](https://expressjs.com/)
  - [Passport](https://passportjs.org/) + [Passport Google OAuth 2.0](https://npm.im/passport-google-oauth20)
  - [EJS](https://ejs.co/)
@@ -18,11 +17,11 @@ This template ships with:
 
 ## why?
 
-This lets us greatly reduce the overhead of launching new applications, as we can shift account management up to the long-suffering administrator.
+MJML is nice for writing emails, Sendy is nice for sending emails.
 
-## how?
+## running?
 
-This is just a demo application, intended as a starting off point for creating new applications. You'll need to create a project on CompSoc's [GCP](https://console.cloud.google.com/), issue a client ID and secret for a web oauth application, and properly configure the callback urls.
+You'll need to create a project on CompSoc's [GCP](https://console.cloud.google.com/), issue a client ID and secret for a web oauth application, and properly configure the callback urls.
 
 More verbosely:
 
