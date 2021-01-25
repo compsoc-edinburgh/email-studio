@@ -8,7 +8,7 @@ const upload  = multer({storage})
 
 const AWS = require('aws-sdk')
 
-const spacesEndpoint = new AWS.Endpoint("ams3.digitaloceanspaces.com");
+const spacesEndpoint = new AWS.Endpoint(process.env.S3_API_ENDPOINT);
 const s3 = new AWS.S3({
     endpoint: spacesEndpoint,
     accessKeyId: process.env.S3_API_ACCESS_KEY,
