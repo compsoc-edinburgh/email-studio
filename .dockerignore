@@ -1,7 +1,7 @@
-node_modules/
+node_modules
 *.tar
 *.sqlite
 *.db
 .env
-staging/
-instance/
+staging
+instance

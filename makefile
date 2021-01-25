@@ -36,6 +36,7 @@ export: clean build
 	mkdir -p ${STAGING}
 	docker save ${DOCKER_TAG_NAME} -o ${STAGING}/${DOCKER_TAG_NAME}.tar
 	gzip ${STAGING}/${DOCKER_TAG_NAME}.tar
+	ls -lh ${STAGING}/${DOCKER_TAG_NAME}.tar.gz
 
 deploy: upload
 	ssh -t ${REMOTE} 'cd ${REMOTE_DESTINATION}; sudo docker-compose stop; sudo docker load -i ${DOCKER_TAG_NAME}.tar; sudo docker-compose up -d;'

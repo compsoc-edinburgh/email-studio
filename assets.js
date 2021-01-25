@@ -108,7 +108,7 @@ assets_app.post('/upload',
         }
 
         let params = {
-            Bucket: 'compsoc',
+            Bucket: process.env.S3_BUCKET,
             Key: `mail/${req.body.assetname}.${req.file.mimetype.slice(6)}`,
             Body: req.file.buffer,
             ContentType: req.file.mimetype,
@@ -123,7 +123,7 @@ assets_app.post('/upload',
                 return
             }
 
-            const url = `https://compsoc.${process.env.S3_API_ENDPOINT}/${params.Key}`
+            const url = `https://${process.env.S3_BUCKET}.${process.env.S3_API_ENDPOINT}/${params.Key}`
 
             await assets.registerAsset(req.body.assetname, url, req.file.size)
 

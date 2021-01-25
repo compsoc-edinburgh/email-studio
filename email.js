@@ -203,6 +203,7 @@ mail_app.get('/edit/:slug/delete',
 mail_app.get('/edit/:slug/delete/confirm',
     email_must_exist,
     async (req,res) => {
+        const mail = new MailDB(await open_db())
         await mail.deleteEmail(req.email.uuid)
 
         res.redirect('/dashboard')
