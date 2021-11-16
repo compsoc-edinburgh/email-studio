@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/compsoc-edinburgh/compsoc-sso-template-js#readme",
   "dependencies": {
-    "aws-sdk": "^2.813.0",
+    "aws-sdk": "^2.814.0",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "debug": "^4.2.0",
