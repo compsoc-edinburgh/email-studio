@@ -32,7 +32,7 @@
     "passport-google-oauth20": "^2.0.0",
     "qs": "^6.9.4",
     "sqlite": "^4.0.15",
-    "sqlite3": "^5.0.0",
+    "sqlite3": "^5.0.3",
     "uuid": "^8.3.2"
   }
 }
