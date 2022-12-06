@@ -30,7 +30,7 @@
     "multer": "^1.4.2",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
-    "qs": "^6.9.4",
+    "qs": "^6.9.7",
     "sqlite": "^4.0.15",
     "sqlite3": "^5.0.0",
     "uuid": "^8.3.2"
